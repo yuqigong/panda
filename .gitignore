@@ -1,1 +1,12 @@
+bin/
+obj/
+__ConfigTemp/
+TestResult/
+PublishProfiles/
+*.suo
+*.vssscc
+*.vspscc
+*.user
+*.pubxml
+TestResults
 .DS_Store
