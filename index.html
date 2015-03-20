@@ -3,7 +3,7 @@
 
 <head>
     <title>My App for panda</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui" charset="utf-8">
     <link rel="stylesheet" href="lib/app.min.css">
     <link rel="stylesheet" href="style/main.css">
     <link rel="stylesheet" href="style/hotel.css">
@@ -58,6 +58,13 @@
                         <ins>￥540</ins></dd>
                 </dl>
             </div>
+            <div class="app-section">
+                <div class="d2MapMask">
+                    <div>
+                        <canvas id="cvs"></canvas>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
     <div class="app-page" data-page="hotel_detail">
@@ -74,6 +81,8 @@
     </div>
     <script src="lib/zepto.js"></script>
     <script src="lib/app.min.js"></script>
+    <script src="data/list.js"></script>
+    <script src="js/2d-map.js"></script>
     <script>
     App.controller('hotel_list', function(page) {
         // put stuff here
@@ -81,6 +90,9 @@
 
     App.controller('hotel_detail', function(page) {
         // put stuff here
+        $(page).on('appShow', function () {
+            handle();
+        });
     });
 
     App.setDefaultTransition('rotate-left');
