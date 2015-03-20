@@ -1,0 +1,32 @@
+.app-section {
+	padding: 0;
+}
+.hotel-category {
+	padding: 0 0 8px 0;
+}
+.hotel-category dd {
+	display: inline-block;
+	padding: 0 5px;
+	position: relative;
+	white-space: nowrap;
+	font-size: 10px;
+}
+.hotel-category dd:before{
+	content: '';
+	display: inline-block;
+	width: 15px;
+	height: 15px;
+	float: left;
+	overflow: hidden;
+	border-radius: 8px;
+	margin: 0px 5px 0 0;
+}
+.hotel-category dd:nth-child(1):before{background: rgb(94, 255, 0);}
+.hotel-category dd:nth-child(2):before{background: rgb(155, 47, 184);}
+.hotel-category dd:nth-child(3):before{background: rgb(255, 97, 0);}
+.hotel-category dd:nth-child(4):before{background: rgb(0, 139, 255);}
+.hotel-category dd:nth-child(5):before{background: rgb(30, 189, 202);}
+.hotel-category ins{
+	text-decoration: initial;
+  	color: rgb(237, 172, 30);
+}

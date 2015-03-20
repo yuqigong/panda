@@ -5,13 +5,16 @@
     <title>My App for panda</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
     <link rel="stylesheet" href="lib/app.min.css">
+    <link rel="stylesheet" href="style/main.css">
+    <link rel="stylesheet" href="style/hotel.css">
+    <link rel="stylesheet" href="style/index.css">
     <style>
     /* TODO */
     </style>
 </head>
 
 <body>
-    <div class="app-page" data-page="home">
+    <div class="app-page" data-page="hotel_list">
         <div class="app-topbar blue">
             <div class="app-button left" data-back></div>
             <div class="app-title">酒店列表</div>
@@ -19,17 +22,48 @@
         <div class="app-content">
             <div class="app-section">
                 <ul class="app-list">
-                    <li class="app-button" data-target="page2">汉庭</li>
-                    <li class="app-button" data-target="page2">如家</li>
-                    <li class="app-button" data-target="page2">7天</li>
+                    <li class="app-button" data-target="hotel_detail">汉庭</li>
+                    <li class="app-button" data-target="hotel_detail">如家</li>
+                    <li class="app-button" data-target="hotel_detail">7天</li>
                 </ul>
             </div>
         </div>
     </div>
-    <div class="app-page" data-page="page2">
-        <div class="app-topbar">
-            <div class="app-button left" data-back data-autotitle></div>
-            <div class="app-title">Page 2</div>
+    <div class="app-page" data-page="hotel_detail">
+        <div class="app-topbar blue">
+            <div class="app-button left" data-back></div>
+            <div class="app-title">酒店详情</div>
+        </div>
+        <div class="app-content">
+            <div class="app-section">
+                <div id="js_header" class="hotel-dpage-list hotel-detail-top p10"> <h1 class="hotel-info-tit" itemprop="name">上海曼哈顿（外滩）商务酒店</h1><h4 class="cgray">舒适型酒店</h4><div class="hotel-dpage-gct" itemprop="aggregateRating" itemscope="" itemtype="http://schema.org/AggregateRating"> <a class="js_a_seo" href="/html5/hotel/hoteldetail/pic/375466.html"><div id="js_imgs" class="hotel-g-proimg"><img itemprop="image" content="http://images4.c-ctrip.com/target/hotel/22000/21648/542d8c19b5ab4b93ad936c54d2b9453e_300_225.jpg" src="http://images4.c-ctrip.com/target/hotel/22000/21648/542d8c19b5ab4b93ad936c54d2b9453e_300_225.jpg" width="65" height="65" onerror="this.style.visibility=&quot;hidden&quot;">  <span class="img-g-bg">21张</span> </div></a>     <a class="js_a_seo" href="/html5/hotel/hoteldetail/dianping/375466.html"><div id="js_comment" class="hotel-detail-clyx hotel-arr"><p class="clyx-line"> <span class="fr js_go2comment" itemprop="reviewCount"><b>7994</b>人点评</span> <em itemprop="ratingValue"><b>4.2</b>分</em> </p><p class="clyx-txt"><em>位置4.6</em><em>设施3.8</em><em>服务4.1</em><em>卫生4.1</em></p> </div></a>  </div> </div>
+            </div>
+            <div class="app-section">
+                <ul class="hotel-dpage-list hotel-dpage-gct mt10"><a class="js_a_seo" href="/html5/hotel/hoteldetail/map/375466.html"> <li class="hotel-hv-center hotel-hv-txt hotel-arr" id="js_place_map" data-biz="1"><i class="hotel-icon-address">酒店地址</i> <span><p>滇池路81-85号</p><p class="cgray">外滩地区</p></span>  <em class="hotel-dpage-map">地图</em> </li> </a>    <a class="js_a_seo" href="/html5/hotel/hoteldetail/more/375466.html"><li class="hotel-hv-center hotel-hv-txt hotel-arr" id="js_place_info" data-biz="1"><i class="hotel-icon-house"></i> <span class="hotel-icon-move"><p> 2004年开业   &nbsp;&nbsp;2010年装修  </p> <i class="hotel-icon-wifi"></i>  <i class="hotel-icon-24h"></i>  <i class="hotel-icon-luggage"></i>  <i class="hotel-icon-food"></i>  <i class="hotel-icon-park-meeting"></i>  <i class="hotel-icon-browser"></i> </span> <em class="hotel-dpage-map">详情</em></li></a></ul>
+            </div>
+            <div class="app-section">
+                <div class="hotel-dpage-list hotel-dpage-roomfilter"><dl class="js_roomfilter_box"><dt class="js_inoutdayedit" id="js_date"><span class="hotel-dpage-currency">修改</span> <span class="dpage-p1"><em class="dpage-p1-date">今天</em><span class="dpage-p1-days fn12">入住1晚</span></span></dt> <dd class="hotel-dpage-rf hotel-l-border js_room_filter"> <em class="hotel-dpage-focus js_room_filter_amount" style="display: none;"></em>  <i class="hotel-icon-rf">筛选房型</i><br>筛选房型</dd>  <dd class="hotel-return-price hotel-l-border js_switchprice">&nbsp;<br><span class="fantit">返前价</span></dd> <dd class="hotel-dpage-rf hotel-l-border js_switchRoomDisplay"><i class="hotel-icon-bygroup">全部折叠</i><br>全部折叠</dd></dl></div>
+                <dl class="hotel-category">
+                    <dd>
+                        商务间
+                        <ins>￥540</ins></dd>
+                    <dd>
+                        标准间
+                        <ins>￥540</ins></dd>
+                    <dd>单人间
+                        <ins>￥540</ins></dd>
+                    <dd>豪华标间
+                        <ins>￥540</ins></dd>
+                    <dd>豪华海景房
+                        <ins>￥540</ins></dd>
+                </dl>
+            </div>
+        </div>
+    </div>
+    <div class="app-page" data-page="hotel_detail">
+        <div class="app-topbar blue">
+            <div class="app-button left" data-back></div>
+            <div class="app-title">订单填写</div>
         </div>
         <div class="app-content">
             <!-- Page 2 is lonely -->
@@ -41,11 +75,11 @@
     <script src="lib/zepto.js"></script>
     <script src="lib/app.min.js"></script>
     <script>
-    App.controller('home', function(page) {
+    App.controller('hotel_list', function(page) {
         // put stuff here
     });
 
-    App.controller('page2', function(page) {
+    App.controller('hotel_detail', function(page) {
         // put stuff here
     });
 
@@ -54,7 +88,7 @@
     try {
         App.restore();
     } catch (err) {
-        App.load('home');
+        App.load('hotel_list');
     }
     </script>
 </body>
