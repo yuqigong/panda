@@ -131,20 +131,23 @@
         gesStart = e.scale;
     }
 
+
     function gesEndHandle (e){
         gesEnd = e.scale;
 
         var se = ((gesEnd-gesStart)/2);
-
         currentScale += se;
-
         if( se <= 0.5 ){
             currentScale = 0.5;
         }
         if( se >= 1.5 ){
             currentScale = 1.5;
         }
-        cvs.style.cssText = "-webkit-transition:all .5s;-webkit-transform:scale("+ currentScale +")";
+
+        var $parent = cvs.parentNode.parentNode;
+        $parent.style.width = $parent.offsetWidth * currentScale;
+        $parent.style.height = $parent.offsetHeight * currentScale;
+        cvs.style.cssText = "-webkit-transform-origin:0% 0%;-webkit-transition:all .2s;-webkit-transform:scale("+ currentScale +")";
     }
 
     handle();

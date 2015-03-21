@@ -1,15 +1,24 @@
-var cvs,ctx;
-var unit = 20,
-    rows = 30;
-    cols = 30;
+var cvs,ctx,cvsParent,cvsParentWidth,cvsParentHeight;
+var rows = 30,
+    cols = 30,
+    unit;
+
+var currentScale = 1,
+    gesStart,
+    gesEnd;
 
 var roomHashMap = [];
 
 function handle (){
+    unit = document.getElementById("js_header").offsetWidth / rows;
     cvs = document.getElementById("cvs");
     ctx = cvs.getContext("2d");
+    cvsParent = document.getElementById("cvsParent");
+    cvsParentWidth = cvsParent.offsetWidth;
+    cvsParentHeight = unit * cols;
     cvs.addEventListener("click", mouseHandle);
-    cvs.addEventListener("gesturechange", gesHandle);
+    cvs.addEventListener("gesturestart",gesStartHandle);
+    cvs.addEventListener("gestureend", gesEndHandle);
     setCvsStyle();
     drawMaps();
     drawRoom();
@@ -94,8 +103,25 @@ function mouseHandle(e){
     });
 }
 
-function gesHandle(e){
-    alert(1);
+function gesStartHandle(e){
+    gesStart = e.scale;
+}
+
+function gesEndHandle (e){
+    gesEnd = e.scale;
+
+    var se = ((gesEnd-gesStart)/2.5);
+    currentScale += se;
+    if( currentScale <= 0.5 ){
+        currentScale = 0.5;
+    }
+    if( currentScale >= 2 ){
+        currentScale = 2;
+    }
+
+    cvsParent.style.width = cvsParentWidth * currentScale + "px";
+    cvsParent.style.height = cvsParentHeight * currentScale + "px";
+    cvs.style.cssText = "resize:auto;-webkit-transform-origin:0% 0%;-webkit-transition:all .2s;-webkit-transform:scale("+ currentScale +")";
 }
 
 
