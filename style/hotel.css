@@ -14,7 +14,7 @@ iframe[name="google_conversion_frame"] {
 
 i[class^="hotel-icon-"],.hotel-icon-edit:before,.hotel-checkbox-wrap {
     display: inline-block;
-    background-image: url(http://pic.c-ctrip.com/h5/hotel/hotel-icon-v3.png);
+    background-image: url(../images/hotel-icon-v3.png);
     background-repeat: no-repeat;
     background-size: 100px 300px;
     vertical-align: middle;
@@ -821,7 +821,7 @@ h1,h2,h3 {
     float: left;
     overflow: hidden;
     margin-right: 10px;
-    background: #f2f2f2 url(http://pic.c-ctrip.com/h5/hotel/hotel-loading-default.png) center center no-repeat;
+    background: #f2f2f2 url(../images/hotel-loading-default.png) center center no-repeat;
     background-size: 27px 29px
 }
 
@@ -2040,7 +2040,7 @@ h1,h2,h3 {
     height: 180px;
     overflow: hidden;
     position: relative;
-    background: url(http://pic.c-ctrip.com/h5/hotel/hotel-loading-default.png) center center no-repeat;
+    background: url(../images/hotel-loading-default.png) center center no-repeat;
     background-size: 27px 29px
 }
 
@@ -4056,7 +4056,7 @@ i.hotel-icon-edit {
     -ms-box-sizing: border-box;
     box-sizing: border-box;
     text-align: center;
-    background: url(http://pic.c-ctrip.com/h5/hotel/hotel-loading-default.png) no-repeat center center;
+    background: url(../images/hotel-loading-default.png) no-repeat center center;
 }
 
 @media (max-width: 640px) {
@@ -4314,7 +4314,7 @@ i.hotel-icon-edit {
 }
 
 .xslide-image-loading {
-    background: #f5f5f5 url(http://pic.c-ctrip.com/h5/hotel/hotel-loading-default.png) no-repeat center center;
+    background: #f5f5f5 url(../images/hotel-loading-default.png) no-repeat center center;
 }
 
 .xslide-nav-container {
