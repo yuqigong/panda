@@ -9,6 +9,7 @@ function handle (){
     cvs = document.getElementById("cvs");
     ctx = cvs.getContext("2d");
     cvs.addEventListener("click", mouseHandle);
+    cvs.addEventListener("gesturechange", gesHandle);
     setCvsStyle();
     drawMaps();
     drawRoom();
@@ -72,8 +73,8 @@ function drawRoom(){
 
 var getCoord = function (e){
     return {
-        x : e.clientX - cvs.offsetLeft,
-        y : e.clientY - cvs.offsetTop
+        x : e.offsetX,
+        y : e.offsetY
     }
 };
 
@@ -89,10 +90,12 @@ var OBB = function (options,callback){
 
 function mouseHandle(e){
     OBB(getCoord(e),function (data){
-        alert(1);
-        // roomName.innerHTML = data.name;
-        // roomNo.innerHTML = data.no;
-        // roomPrice.innerHTML = data.price;
-        // roomMsg.innerHTML = data.message;
+        alert(JSON.stringify(data));
     });
 }
+
+function gesHandle(e){
+    alert(1);
+}
+
+

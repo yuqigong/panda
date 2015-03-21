@@ -2,6 +2,8 @@
 <html>
 <head>
 <meta charset="utf-8" />
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+<meta name="apple-mobile-web-app-capable" />
 <link href="main.css" type="text/css" rel="stylesheet" />
 </head>
 <body>
@@ -20,33 +22,27 @@
     <li>附加信息：<span class="roomMsg"></span></li>
 </ul>
 <canvas id="cvs"></canvas>
-
+<script src="../js/debuggap.js"></script>
 <script src="../data/list.js"></script>
 <script>
-
-    var r = document.getElementById("rows"),
-        c = document.getElementById("cols"),
-        b = document.getElementById("generate"),
-        cvs = document.getElementById("cvs"),
-        ctx = cvs.getContext("2d"),
+    var cvs,
+        ctx,
         unit = 20,
-        rows,
-        cols;
+        rows = 30;
+        cols = 30;
 
-    var roomHashMap = [],
-        msg = document.querySelector(".showMsg"),
-        roomName = msg.querySelector(".roomName"),
-        roomNo = msg.querySelector(".roomNo"),
-        roomPrice = msg.querySelector(".roomPrice"),
-        roomMsg = msg.querySelector(".roomMsg");
+    var currentScale = 1,
+        gesStart,
+        gesEnd;
 
-    b.addEventListener("click", handle);
-    cvs.addEventListener("mousedown", mouseHandle);
+    var roomHashMap = [];
 
     function handle (){
-        rows = r.value;
-        cols = c.value;
-
+        cvs = document.getElementById("cvs");
+        ctx = cvs.getContext("2d");
+        cvs.addEventListener("click", mouseHandle);
+        cvs.addEventListener("gesturestart",gesStartHandle);
+        cvs.addEventListener("gestureend", gesEndHandle);
         setCvsStyle();
         drawMaps();
         drawRoom();
@@ -110,14 +106,14 @@
 
     var getCoord = function (e){
         return {
-            x : e.clientX - cvs.offsetLeft,
-            y : e.clientY - cvs.offsetTop
+            x : e.offsetX,
+            y : e.offsetY
         }
     };
 
     var OBB = function (options,callback){
         var x = options.x,
-            y = options.y;
+                y = options.y;
         roomHashMap.map(function (el){
             if( x > el.minX && x < el.maxX && y < el.maxY && y > el.minY ){
                 return callback(el);
@@ -127,14 +123,33 @@
 
     function mouseHandle(e){
         OBB(getCoord(e),function (data){
-            roomName.innerHTML = data.name;
-            roomNo.innerHTML = data.no;
-            roomPrice.innerHTML = data.price;
-            roomMsg.innerHTML = data.message;
+            alert(JSON.stringify(data));
         });
     }
 
-    b.click();
+    function gesStartHandle(e){
+        gesStart = e.scale;
+    }
+
+    function gesEndHandle (e){
+        gesEnd = e.scale;
+
+        var se = ((gesEnd-gesStart)/2);
+
+        currentScale += se;
+
+        if( se <= 0.5 ){
+            currentScale = 0.5;
+        }
+        if( se >= 1.5 ){
+            currentScale = 1.5;
+        }
+        cvs.style.cssText = "-webkit-transition:all .5s;-webkit-transform:scale("+ currentScale +")";
+    }
+
+    handle();
+
+
 
 </script>
 </body>
