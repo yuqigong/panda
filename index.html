@@ -151,13 +151,130 @@
             </div>
         </div>
     </div>
-    <div class="app-page" data-page="success_detail">
+    <div class="app-page" data-page="order_booking">
         <div class="app-topbar blue">
             <div class="app-button left" data-back></div>
             <div class="app-title">订单填写</div>
         </div>
         <div class="app-content">
-            预定成功！！
+            <article class="hotel-booking" id="js_booking_box">
+                <!--star booking header 盒子-->
+                <div class="booking-hd">
+                    <!-- start 基础信息（国内用）-->
+                    <section class="booking-hd-msg">
+                        <h3>上海嘉汇华美达广场大酒店</h3>
+                        <p class="msg-detail">此为向代理商申请的特殊价格，提交订单后会操作扣款，并在12小时内回复您预订结果，请您耐心等待。</p>
+                    </section>
+                    <!-- end 基础信息（国内用）-->
+                </div>
+                <!--end booking header 盒子-->
+                <div class="booking-bd">
+                    <section class="booking-bd-items">
+                        <ul class="booking-modify">
+                            <!-- start 修改日期按钮 -->
+                            <li id="js_checkInOutDay" class="hotel-arr">
+                                <div class="modify-ptb w-full">
+                                    <span><small>入住</small> <span id="js_checkinDate">3月22日</span> <span class="p10"></span> </span>
+                                    <span><small>离店</small> <span id="js_checkoutDate">3月23日</span></span>
+                                </div>
+                                <span class="modify-txt">修改</span>
+                            </li>
+                            <!-- end 修改日期按钮 -->
+                            <!-- start 修改房间数量 -->
+                            <li>
+                                <p class="modify-ptb w-full">
+                                    商务双床房
+                                </p>
+                                <div id="js_roomQty">
+                                    <div class="cui-view" id="cui-1426956302460"><span class="cui-number-ma"><i class="num-minus num-invalid"></i><input type="tel" class="num-value-txt" value="1" data-key="1" disabled="disabled"><i class="num-add"></i></span></div>
+                                </div>
+                            </li>
+                            <!-- end 修改房间数量 -->
+                            <li id="js_selectPassenger" class="">
+                                <div id="js_booking_passengerInputInterpret" class="js_passenger_label booking-label hotel-question-mark">入住人</div>
+                                <ul id="js_booking_passengerList" class="person-in-items">
+                                    <li>
+                                        <input type="text" class="hotel-g-input" placeholder="姓名，每间只需填写1人">
+                                    </li>
+                                </ul>
+                            </li>
+                            <!-- start 境内手机 -->
+                            <li>
+                                <label class="booking-label" id="js_switch_phone_ctry" data-key="1">境内手机<span class="hotel-bluepull"></span></label>
+                                <input type="tel" maxlength="11" class="hotel-g-input js_input" value="13466121289" id="js_booking_phoneInput" placeholder="用于接收通知">
+                                <span id="js_booking_phoneClearBtn" class="hotel-focus-close" style="display: none;"></span>
+                            </li>
+                            <!-- end 境内手机 -->
+                        </ul>
+                    </section>
+                    <section class="booking-bd-items mt10">
+                        <ul class="booking-modify">
+                            <!-- start 发票 -->
+                            <li id="js_booking_invoice" class="hotel-arr">
+                                <label class="booking-label">发票</label>
+                                <p id="js_booking_invoiceTitle" class="booking-g-txt">不需要</p>
+                            </li>
+                            <!-- end 发票 -->
+                        </ul>
+                    </section>
+                    <section class="booking-fd-items">
+                    </section>
+                    <section class="booking-fd-items booking-tips p10">
+                        <!-- start 取消文案 -->
+                        <p class="hotel-ordtail-tips" id="js_booking_cancelInfo">订单提交后我们会立即操作扣款，如订单不确认将全额退款至您的付款账户。该订单确认后不可被取消修改，若未入住或取消修改，我们将收取您全额房费RMB 628。</p>
+                        <!-- end 取消文案 -->
+                        <!-- start 通知信息 -->
+                        <p class="hotel-ordtail-tips"> 该酒店的入住时间为14:00，退房标准结算时间为12:00。如提前入住或推迟离店，均须酌情加收一定的费用。</p>
+                        <!-- end 通知信息 -->
+                    </section>
+                </div>
+                <!-- start paybar -->
+                <section class="hotel-paybar">
+                    <button id="js_booking_paybtn" class="pay-btn">支付</button>
+                    <div class="pay-txt">
+                        <em class="pay-detail" id="js_price_detail_link">明细</em>
+                        <em class="pay-total">总额：</em>
+                        <em class="pay-price">
+                            <small>¥</small><strong>628</strong>
+                        </em>
+                    </div>
+                </section>
+                <!-- end paybar -->
+                <!-- price detail start-->
+                <div class="hidden" id="js_price_detail_wrap">
+                    <h2>费用明细</h2>
+                    <dl class="cost-list">
+                        <dt>
+                            <span class="fr g-price"><small>¥</small>628</span>
+                            <span class="hotel-font-color">房费</span>
+                        </dt>
+                        <dd>
+                            <span>2015-03-22</span>
+                            <span>无早</span>
+                            <span><small>¥</small>628 × 1</span>
+                        </dd>
+                    </dl>
+                    <div class="cost-txt">
+                        <p>
+                            总额：
+                            <strong class="g-price">¥ 628</strong>
+                        </p>
+                    </div>
+                </div>
+                <!-- price detail end-->
+                <!-- popupwindow for PassengerInputInterpret start -->
+                <div id="js_popupPassengerInputInterpret" style="display:none">
+                    <ol class="hotel-hintlist p10">
+                        <li>预订国内酒店需要提供入住人的姓名。需与入住时所持证件完全一致。</li>
+                        <li>预订港澳台酒店，必须填写入住人的英文名。</li>
+                        <li>
+                            英文姓名填写格式（last/first middle）：姓在前，姓和名之间用“/”隔开，如有中间名则空一格紧随名之后,例： Zhang/Sanfeng（张三丰）； Green/Jim Stephanie。
+                        </li>
+                        <li>中文姓名中不能包含英文字母</li>
+                    </ol>
+                </div>
+                <!-- popupwindow for PassengerInputInterpret end -->
+            </article>
         </div>
     </div>
     <script src="lib/zepto.js"></script>
@@ -166,26 +283,28 @@
     <script src="data/list.js"></script>
     <script src="js/2d-map.js"></script>
     <script>
-        var flag = true;
-    // 加载酒店列表页
+    var flag = true;
+
     App.controller('hotel_list', function(page) {
-        // put stuff here
+        $(page).on('appShow', function() {
+            flag = true;
+        });
     });
 
+    // 加载酒店详情页
     App.controller('hotel_detail', function(page) {
-        // put stuff here
         $(page).on('appShow', function() {
             var $pop = $(page).find('#j_pop');
 
             var fn = {
-                showPop : function (){
+                showPop: function() {
                     $pop.removeClass("hidden");
                 },
-                hidePop : function (){
+                hidePop: function() {
                     $pop.addClass('hidden');
                 },
-                toDetail : function (){
-                    App.load('success_detail',function (){
+                toDetail: function() {
+                    App.load('order_booking', function() {
                         fn.hidePop();
                     });
                 }
@@ -194,6 +313,7 @@
             $(page).find('#j_pop .cui-top-close').on('click', function() {
                 fn.hidePop();
             });
+
             flag && handle(fn);
         });
 
@@ -204,6 +324,7 @@
     try {
         App.restore();
     } catch (err) {
+        // 加载酒店列表页
         App.load('hotel_list');
     }
     </script>
