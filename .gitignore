@@ -10,3 +10,9 @@ PublishProfiles/
 *.pubxml
 TestResults
 .DS_Store
+.idea/
+.project
+js/debuggap.js
+manifest.json
+server.js
+start.bat

@@ -1,0 +1,39 @@
+[{
+    "RoomInfoId": 0,
+    "RoomTypeId": 0,
+    "HotelFloorId": 0,
+    "RoomNo": "101",
+    "Message": "",
+    "PicURl": "http://172.68.2.198:8080/images/home.png",
+    "PositionX": 0,
+    "PositionY": 0,
+    "Width": 4,
+    "Height": 4,
+    "Angle": 90
+},
+{
+    "RoomInfoId": 1,
+    "RoomTypeId": 2,
+    "HotelFloorId": 0,
+    "RoomNo": "102",
+    "Message": "",
+    "PicURl": "http://172.68.2.198:8080/images/home.png",
+    "PositionX": 4,
+    "PositionY": 0,
+    "Width": 4,
+    "Height": 4,
+    "Angle": 90
+},
+{
+    "RoomInfoId": 2,
+    "RoomTypeId": 0,
+    "HotelFloorId": 0,
+    "RoomNo": "103",
+    "Message": "",
+    "PicURl": "http://172.68.2.198:8080/images/home.png",
+    "PositionX": 8,
+    "PositionY": 0,
+    "Width": 4,
+    "Height": 4,
+    "Angle": 90
+}]
