@@ -90,7 +90,7 @@
                     </div>
                 </div>
             </div>
-            <div class="cui-view cui-layer" id="j_pop" style="margin-left: -145px; margin-top: -284px; z-index: 3004; visibility: visible;">
+            <div class="cui-view cui-layer hidden" id="j_pop" style="margin-left: -145px; margin-top: -284px; z-index: 3004; visibility: visible;">
                 <div class="cui-layer-padding">
                     <div class="cui-layer-content">
                         <div class="cui-pop-box">
@@ -135,25 +135,13 @@
                                             <p class="cgray">预计在3小时内回复预订结果。此为向酒店或代理商申请的特殊价格，价格可能变动且不保证预订成功；提交订单后会先操作扣款。特殊需求皆不能保证满足。</p>
                                         </li>
                                     </ul>
-                                    <ul class="layer-bd hidden">
-                                        <li class="hotel-pos-rel"><span class="ico-txt"><i class="hotel-icon-cancelorder"></i></span>
-                                            <p><b>取消预订</b>
-                                                <br>订单提交后我们会立即操作扣款，如订单不确认将全额退款至您的付款账户。若未入住或取消修改及提前离店，我们将收取您一定的房费。</p>
-                                        </li>
-                                        <li class="hotel-pos-rel js_nots_box"><span class="ico-txt"><i class="hotel-icon-xianshi"></i></span>
-                                            <p class="hotel-ellips-line3 js_cont_box"> 该酒店的入住时间为14:00，退房标准结算时间为12:00。如提前入住或推迟离店，均须酌情加收一定的费用。
-                                                <br>
-                                            </p>
-                                            <div class="hotel-dpag-unfold hotel-xianshi-txtmore js_nots_more js_tipslayer_evt_trigger" data-evt-name=".js_nots_box .js_nots_more"><em>更多</em><span class="hotel-arr hotel-arrdown"></span></div>
-                                        </li>
-                                    </ul>
                                 </div>
                             </div>
                             <div class="cui-ft-fixed">
                                 <div class="hotel-detail-layer">
                                     <ul class="layer-bd">
                                         <li>
-                                            <button class="hotel-g-btn js_btn_book  js_tipslayer_evt_trigger" data-evt-name=".js_btn_book">预订</button><em class="g-price"><small>¥</small>628</em></li>
+                                            <button id="toDetailBtn" class="hotel-g-btn js_btn_book  js_tipslayer_evt_trigger" data-evt-name=".js_btn_book">预订</button><em class="g-price"><small>¥</small>628</em></li>
                                     </ul>
                                 </div>
                             </div>
@@ -178,6 +166,7 @@
     <script src="data/list.js"></script>
     <script src="js/2d-map.js"></script>
     <script>
+        var flag = true;
     // 加载酒店列表页
     App.controller('hotel_list', function(page) {
         // put stuff here
@@ -186,29 +175,28 @@
     App.controller('hotel_detail', function(page) {
         // put stuff here
         $(page).on('appShow', function() {
-            handle();
-            window.bullets = document.getElementById('position').getElementsByTagName('em');
-            window.mySwipe = new Swipe(document.getElementById('slider'), {
-                startSlide: 0,
-                // speed: 400,
-                // auto: 3000,
-                continuous: true,
-                disableScroll: true,
-                stopPropagation: false,
-                callback: function(e, pos) {
-                    var i = bullets.length;
-                    while (i--) {
-                        bullets[i].className = ' ';
-                    }
-                    bullets[pos].className = 'on';
+            var $pop = $(page).find('#j_pop');
+
+            var fn = {
+                showPop : function (){
+                    $pop.removeClass("hidden");
                 },
-                transitionEnd: function(index, elem) {}
+                hidePop : function (){
+                    $pop.addClass('hidden');
+                },
+                toDetail : function (){
+                    App.load('success_detail',function (){
+                        fn.hidePop();
+                    });
+                }
+            };
+
+            $(page).find('#j_pop .cui-top-close').on('click', function() {
+                fn.hidePop();
             });
+            flag && handle(fn);
         });
-        var $pop = $(page).find('#j_pop');
-        $(page).find('#j_pop .cui-top-close').on('click', function() {
-            $pop.addClass('hidden');
-        });
+
     });
 
     App.setDefaultTransition('rotate-left');

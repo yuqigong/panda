@@ -3,22 +3,46 @@ var rows = 30,
     cols = 30,
     unit;
 
+var showPopFn,
+    toDetail;
+
 var currentScale = 1,
     gesStart,
     gesEnd;
 
 var roomHashMap = [];
 
-function handle (){
+var bindEvents = function (){
+    window.bullets = document.getElementById('position').getElementsByTagName('em');
+    window.mySwipe = new Swipe(document.getElementById('slider'), {
+        startSlide: 0,
+        continuous: true,
+        disableScroll: true,
+        stopPropagation: false,
+        callback: function(e, pos) {
+            var i = bullets.length;
+            while (i--) {
+                bullets[i].className = ' ';
+            }
+            bullets[pos].className = 'on';
+        },
+        transitionEnd: function(index, elem) {}
+    });
+}
+
+function handle (fn){
+    flag = false;
+    showPopFn = fn.showPop;
+    toDetail = fn.toDetail;
     unit = document.getElementById("js_header").offsetWidth / rows;
     cvs = document.getElementById("cvs");
     ctx = cvs.getContext("2d");
-    cvsParent = document.getElementById("cvsParent");
-    cvsParentWidth = cvsParent.offsetWidth;
+    cvsParentWidth = unit * rows;
     cvsParentHeight = unit * cols;
-    cvs.addEventListener("click", mouseHandle);
+    cvs.addEventListener("mousedown", mouseHandle);
     cvs.addEventListener("gesturestart",gesStartHandle);
     cvs.addEventListener("gestureend", gesEndHandle);
+    document.getElementById("toDetailBtn").addEventListener("mousedown", toDetail);
     setCvsStyle();
     drawMaps();
     drawRoom();
@@ -54,30 +78,49 @@ function drawMaps (){
 function drawRoom(){
     ctx.save();
     ctx.beginPath();
-    roomList.map(function (el,i){
-        var t = roomType[el.RoomTypeId];
-        ctx.fillStyle = t.Color;
-        var obj = {
-            x : el.PositionX*unit,
-            width : addPoint(el.Width*unit),
-            y : el.PositionY*unit,
-            height : addPoint(el.Height*unit)
-        };
-        ctx.fillRect(obj.x,obj.y,obj.width,obj.height);
-        ctx.strokeText(el.RoomNo,obj.x+obj.width/2 - 10,obj.y+obj.height/2+5);
-        roomHashMap.push({
-            minX : obj.x,
-            maxX : obj.x + obj.width,
-            minY : obj.y,
-            maxY : obj.y + obj.height,
-            no : el.RoomNo,
-            message : el.Message,
-            name : t.Name,
-            price : t.Price
+    $.getJSON("../data/rooms.json", function (data){
+        data.map(function (el,i){
+            var t = roomType[el.RoomTypeId];
+            var obj = {
+                x : el.PositionX*unit,
+                width : addPoint(el.Width*unit),
+                y : el.PositionY*unit,
+                height : addPoint(el.Height*unit)
+            };
+
+            var xpos = obj.width/2;
+            var ypos = obj.height/2;
+            var radius = 90 * Math.PI / 180;
+
+            var img = new Image();
+            img.onload = function (){
+                ctx.save();
+                ctx.fillStyle = t.Color;
+                ctx.strokeStyle = t.Color;
+                /*ctx.translate(xpos, ypos);
+                ctx.rotate(radius);
+                ctx.translate(-xpos, -ypos);*/
+                ctx.fillRect( obj.x,obj.y, obj.width, obj.height);
+                ctx.drawImage(img,obj.x,obj.y, obj.width, obj.height);
+                ctx.strokeText(el.RoomNo,obj.x+obj.width/2 - 10,obj.y+obj.height/2+5);
+                ctx.restore();
+            }
+            img.src = el.PicURl;
+
+            roomHashMap.push({
+                minX : obj.x,
+                maxX : obj.x + obj.width,
+                minY : obj.y,
+                maxY : obj.y + obj.height,
+                no : el.RoomNo,
+                message : el.Message,
+                name : t.Name,
+                price : t.Price
+            });
         });
-    });
-    ctx.closePath();
-    ctx.restore();
+        ctx.closePath();
+        ctx.restore();
+    })
 }
 
 var getCoord = function (e){
@@ -99,7 +142,8 @@ var OBB = function (options,callback){
 
 function mouseHandle(e){
     OBB(getCoord(e),function (data){
-        alert(JSON.stringify(data));
+        showPopFn();
+        bindEvents();
     });
 }
 
@@ -118,7 +162,6 @@ function gesEndHandle (e){
     if( currentScale >= 2 ){
         currentScale = 2;
     }
-
     cvsParent.style.width = cvsParentWidth * currentScale + "px";
     cvsParent.style.height = cvsParentHeight * currentScale + "px";
     cvs.style.cssText = "resize:auto;-webkit-transform-origin:0% 0%;-webkit-transition:all .2s;-webkit-transform:scale("+ currentScale +")";
