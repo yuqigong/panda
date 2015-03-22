@@ -96,12 +96,21 @@ function drawRoom() {
                 ctx.save();
                 ctx.fillStyle = t.Color;
                 ctx.strokeStyle = t.Color;
+<<<<<<< Updated upstream
                 /*ctx.translate(xpos, ypos);
                 ctx.rotate(radius);
                 ctx.translate(-xpos, -ypos);*/
                 ctx.fillRect(obj.x, obj.y, obj.width, obj.height);
                 ctx.drawImage(img, obj.x, obj.y, obj.width, obj.height);
                 ctx.strokeText(el.RoomNo, obj.x + obj.width / 2 - 10, obj.y + obj.height / 2 + 5);
+=======
+                ctx.translate(xpos, ypos);
+                ctx.rotate( radius );
+                ctx.translate( -xpos, -ypos );
+                ctx.fillRect( obj.x,obj.y, obj.width, obj.height );
+                ctx.drawImage( img,obj.x ,obj.y, obj.width, obj.height );
+                ctx.strokeText( el.RoomNo,obj.x+obj.width/2 - 10,obj.y+obj.height/2+5 );
+>>>>>>> Stashed changes
                 ctx.restore();
             }
             img.src = el.PicURl;
