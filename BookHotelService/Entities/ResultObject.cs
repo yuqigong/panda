@@ -18,10 +18,8 @@ namespace Entities
 
         public DateTime Time { get; set; }
 
-
         public List<string> V1 { get; set; }
         public Dictionary<int, string> KvDictionary { get; set; }
 
-        public User User { get; set; }
     }
 }
