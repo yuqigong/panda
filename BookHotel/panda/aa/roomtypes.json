@@ -1,0 +1,14 @@
+[{
+    "RoomTypeId": 0,
+    "Name": "普通标准房",
+    "Price": 120,
+    "Color": "#BE4C4C",
+    "IconUrl": "http://192.168.255.13:8080/images/home.png"
+},
+{
+    "RoomTypeId": 2,
+    "Name": "普通双床房",
+    "Price": 150,
+    "Color": "#8791F0",
+    "IconUrl": "http://192.168.255.13:8080/images/home.png"
+}]

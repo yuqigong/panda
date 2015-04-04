@@ -11,7 +11,6 @@ using System.Text;
 using System.Windows.Forms;
 using DAL;
 using Entities;
-using WHPLib;
 
 namespace BookHotelTool
 {
@@ -106,55 +105,55 @@ namespace BookHotelTool
                     PositionY = y,
                     Message = dlg.tbMessage.Text.Trim(),
                     IsCanBook = true,
-                    PicURl = "http://localhost:8080/Images/home.png",
+                    PicURl = "http://www.cdpath.com/Images/home.png",
                     RoomNo = dlg.tbRoomNo.Text.Trim()
                 };
 
             if (pb.Tag.ToString() == "标准房")
             {
                 room.RoomTypeId = 0;
-                room.PicURl = "http://localhost:8080/Images/home.png";
+                room.PicURl = "http://www.cdpath.com/Images/home.png";
             }
             else if (pb.Tag.ToString() == "大床房")
             {
                 room.RoomTypeId = 1;
-                room.PicURl = "http://localhost:8080/Images/home1.png";
+                room.PicURl = "http://www.cdpath.com/Images/home1.png";
             }
             else if (pb.Tag.ToString() == "豪华房")
             {
                 room.RoomTypeId = 4;
-                room.PicURl = "http://localhost:8080/Images/home3.png";
+                room.PicURl = "http://www.cdpath.com/Images/home3.png";
             }
             else if (pb.Tag.ToString() == "会议室")
             {
                 room.RoomTypeId = 5;
-                room.PicURl = "http://localhost:8080/Images/Meeting Room.png";
+                room.PicURl = "http://www.cdpath.com/Images/Meeting Room.png";
             }
             else if (pb.Tag.ToString() == "不可预订")
             {
                 room.IsCanBook = false;
                 room.RoomTypeId = 1;
-                room.PicURl = "http://localhost:8080/Images/home_no.png";
+                room.PicURl = "http://www.cdpath.com/Images/home_no.png";
             }
             else if (pb.Tag.ToString() == "餐厅")
             {
                 room.RoomTypeId = -1;
-                room.PicURl = "http://localhost:8080/Images/Restaurant.png";
+                room.PicURl = "http://www.cdpath.com/Images/Restaurant.png";
             }
             else if (pb.Tag.ToString() == "电梯")
             {
                 room.RoomTypeId = -1;
-                room.PicURl = "http://localhost:8080/Images/lift.png";
+                room.PicURl = "http://www.cdpath.com/Images/lift.png";
             }
             else if (pb.Tag.ToString() == "会议室")
             {
                 room.RoomTypeId = -1;
-                room.PicURl = "http://localhost:8080/Images/Meeting%20Room.png";
+                room.PicURl = "http://www.cdpath.com/Images/Meeting%20Room.png";
             }
             else if (pb.Tag.ToString() == "厕所")
             {
                 room.RoomTypeId = -1;
-                room.PicURl = "http://localhost:8080/Images/toilet.png";
+                room.PicURl = "http://www.cdpath.com/Images/toilet.png";
             }
             else if (pb.Tag.ToString() == "走廊")
             {
