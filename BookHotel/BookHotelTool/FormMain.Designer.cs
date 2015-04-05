@@ -40,7 +40,7 @@
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
             this.lblShowRooms = new System.Windows.Forms.Label();
             this.btnSaveToDisk = new System.Windows.Forms.Button();
-            this.btnDeleteLastRoom = new System.Windows.Forms.Button();
+            this.btnDeleteSelectedRoom = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -58,6 +58,8 @@
             this.pictureBox7 = new System.Windows.Forms.PictureBox();
             this.pbBigRoom = new System.Windows.Forms.PictureBox();
             this.pbStandardRoom = new System.Windows.Forms.PictureBox();
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.tlblInfo = new System.Windows.Forms.ToolStripStatusLabel();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
@@ -67,11 +69,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbBigRoom)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbStandardRoom)).BeginInit();
+            this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnInit
             // 
-            this.btnInit.Location = new System.Drawing.Point(380, 1);
+            this.btnInit.Location = new System.Drawing.Point(494, 5);
             this.btnInit.Name = "btnInit";
             this.btnInit.Size = new System.Drawing.Size(56, 23);
             this.btnInit.TabIndex = 0;
@@ -81,7 +84,7 @@
             // 
             // btnLoad
             // 
-            this.btnLoad.Location = new System.Drawing.Point(523, 2);
+            this.btnLoad.Location = new System.Drawing.Point(637, 5);
             this.btnLoad.Name = "btnLoad";
             this.btnLoad.Size = new System.Drawing.Size(75, 23);
             this.btnLoad.TabIndex = 1;
@@ -92,15 +95,15 @@
             // cbFloors
             // 
             this.cbFloors.FormattingEnabled = true;
-            this.cbFloors.Location = new System.Drawing.Point(53, 13);
+            this.cbFloors.Location = new System.Drawing.Point(53, 8);
             this.cbFloors.Name = "cbFloors";
-            this.cbFloors.Size = new System.Drawing.Size(215, 20);
+            this.cbFloors.Size = new System.Drawing.Size(153, 20);
             this.cbFloors.TabIndex = 3;
             this.cbFloors.SelectedIndexChanged += new System.EventHandler(this.cbFloors_SelectedIndexChanged);
             // 
             // btnAddRoomType
             // 
-            this.btnAddRoomType.Location = new System.Drawing.Point(604, 2);
+            this.btnAddRoomType.Location = new System.Drawing.Point(718, 5);
             this.btnAddRoomType.Name = "btnAddRoomType";
             this.btnAddRoomType.Size = new System.Drawing.Size(101, 23);
             this.btnAddRoomType.TabIndex = 4;
@@ -109,7 +112,7 @@
             // 
             // btnAddFloor
             // 
-            this.btnAddFloor.Location = new System.Drawing.Point(442, 1);
+            this.btnAddFloor.Location = new System.Drawing.Point(556, 5);
             this.btnAddFloor.Name = "btnAddFloor";
             this.btnAddFloor.Size = new System.Drawing.Size(75, 23);
             this.btnAddFloor.TabIndex = 5;
@@ -119,7 +122,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 17);
+            this.label1.Location = new System.Drawing.Point(6, 12);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(47, 12);
             this.label1.TabIndex = 6;
@@ -129,7 +132,7 @@
             // 
             this.lbl1231.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lbl1231.AutoSize = true;
-            this.lbl1231.Location = new System.Drawing.Point(1018, 122);
+            this.lbl1231.Location = new System.Drawing.Point(1017, 122);
             this.lbl1231.Name = "lbl1231";
             this.lbl1231.Size = new System.Drawing.Size(41, 12);
             this.lbl1231.TabIndex = 10;
@@ -139,7 +142,7 @@
             // 
             this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(1018, 208);
+            this.label4.Location = new System.Drawing.Point(1017, 208);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(41, 12);
             this.label4.TabIndex = 10;
@@ -157,15 +160,16 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lblShowRooms.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lblShowRooms.Location = new System.Drawing.Point(7, 58);
+            this.lblShowRooms.Location = new System.Drawing.Point(7, 33);
             this.lblShowRooms.Name = "lblShowRooms";
-            this.lblShowRooms.Size = new System.Drawing.Size(919, 486);
+            this.lblShowRooms.Size = new System.Drawing.Size(918, 545);
             this.lblShowRooms.TabIndex = 13;
             this.lblShowRooms.Click += new System.EventHandler(this.lblShowRooms_Click);
             this.lblShowRooms.DragDrop += new System.Windows.Forms.DragEventHandler(this.lblShowRooms_DragDrop);
             this.lblShowRooms.DragEnter += new System.Windows.Forms.DragEventHandler(this.lblShowRooms_DragEnter);
             this.lblShowRooms.DragLeave += new System.EventHandler(this.lblShowRooms_DragLeave);
             this.lblShowRooms.Paint += new System.Windows.Forms.PaintEventHandler(this.lblShowRooms_Paint);
+            this.lblShowRooms.DoubleClick += new System.EventHandler(this.lblShowRooms_DoubleClick);
             this.lblShowRooms.MouseDown += new System.Windows.Forms.MouseEventHandler(this.lblShowRooms_MouseDown);
             this.lblShowRooms.MouseMove += new System.Windows.Forms.MouseEventHandler(this.lblShowRooms_MouseMove);
             this.lblShowRooms.MouseUp += new System.Windows.Forms.MouseEventHandler(this.lblShowRooms_MouseUp);
@@ -173,7 +177,7 @@
             // 
             // btnSaveToDisk
             // 
-            this.btnSaveToDisk.Location = new System.Drawing.Point(277, 0);
+            this.btnSaveToDisk.Location = new System.Drawing.Point(293, 5);
             this.btnSaveToDisk.Name = "btnSaveToDisk";
             this.btnSaveToDisk.Size = new System.Drawing.Size(75, 23);
             this.btnSaveToDisk.TabIndex = 14;
@@ -181,21 +185,21 @@
             this.btnSaveToDisk.UseVisualStyleBackColor = true;
             this.btnSaveToDisk.Click += new System.EventHandler(this.btnSaveToDisk_Click);
             // 
-            // btnDeleteLastRoom
+            // btnDeleteSelectedRoom
             // 
-            this.btnDeleteLastRoom.Location = new System.Drawing.Point(358, 30);
-            this.btnDeleteLastRoom.Name = "btnDeleteLastRoom";
-            this.btnDeleteLastRoom.Size = new System.Drawing.Size(105, 23);
-            this.btnDeleteLastRoom.TabIndex = 15;
-            this.btnDeleteLastRoom.Text = "DeleteLastRoom";
-            this.btnDeleteLastRoom.UseVisualStyleBackColor = true;
-            this.btnDeleteLastRoom.Click += new System.EventHandler(this.btnDeleteLastRoom_Click);
+            this.btnDeleteSelectedRoom.Location = new System.Drawing.Point(374, 7);
+            this.btnDeleteSelectedRoom.Name = "btnDeleteSelectedRoom";
+            this.btnDeleteSelectedRoom.Size = new System.Drawing.Size(105, 23);
+            this.btnDeleteSelectedRoom.TabIndex = 15;
+            this.btnDeleteSelectedRoom.Text = "DeleteSelectedRoom";
+            this.btnDeleteSelectedRoom.UseVisualStyleBackColor = true;
+            this.btnDeleteSelectedRoom.Click += new System.EventHandler(this.btnDeleteSelectedRoom_Click);
             // 
             // label2
             // 
             this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(1018, 286);
+            this.label2.Location = new System.Drawing.Point(1017, 286);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(53, 12);
             this.label2.TabIndex = 10;
@@ -205,7 +209,7 @@
             // 
             this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(1030, 373);
+            this.label3.Location = new System.Drawing.Point(1029, 373);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(29, 12);
             this.label3.TabIndex = 10;
@@ -215,7 +219,7 @@
             // 
             this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(1030, 466);
+            this.label5.Location = new System.Drawing.Point(1029, 466);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(29, 12);
             this.label5.TabIndex = 10;
@@ -225,7 +229,7 @@
             // 
             this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(956, 208);
+            this.label6.Location = new System.Drawing.Point(955, 208);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(41, 12);
             this.label6.TabIndex = 10;
@@ -235,7 +239,7 @@
             // 
             this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(960, 376);
+            this.label7.Location = new System.Drawing.Point(959, 376);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(29, 12);
             this.label7.TabIndex = 10;
@@ -245,7 +249,7 @@
             // 
             this.label8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(960, 292);
+            this.label8.Location = new System.Drawing.Point(959, 292);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(29, 12);
             this.label8.TabIndex = 10;
@@ -255,7 +259,7 @@
             // 
             this.label9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(952, 121);
+            this.label9.Location = new System.Drawing.Point(951, 121);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(41, 12);
             this.label9.TabIndex = 10;
@@ -263,7 +267,7 @@
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(277, 30);
+            this.btnSave.Location = new System.Drawing.Point(212, 5);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(75, 23);
             this.btnSave.TabIndex = 17;
@@ -275,7 +279,7 @@
             // 
             this.pictureBox5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.pictureBox5.Location = new System.Drawing.Point(941, 313);
+            this.pictureBox5.Location = new System.Drawing.Point(940, 313);
             this.pictureBox5.Name = "pictureBox5";
             this.pictureBox5.Size = new System.Drawing.Size(60, 60);
             this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -288,7 +292,7 @@
             // 
             this.pictureBox6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox6.Image = global::BookHotelTool.Properties.Resources.toilet;
-            this.pictureBox6.Location = new System.Drawing.Point(941, 229);
+            this.pictureBox6.Location = new System.Drawing.Point(940, 229);
             this.pictureBox6.Name = "pictureBox6";
             this.pictureBox6.Size = new System.Drawing.Size(60, 60);
             this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -301,7 +305,7 @@
             // 
             this.pictureBox4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox4.Image = global::BookHotelTool.Properties.Resources.Meeting_Room;
-            this.pictureBox4.Location = new System.Drawing.Point(941, 145);
+            this.pictureBox4.Location = new System.Drawing.Point(940, 145);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(60, 60);
             this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -314,7 +318,7 @@
             // 
             this.pictureBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox3.Image = global::BookHotelTool.Properties.Resources.exit;
-            this.pictureBox3.Location = new System.Drawing.Point(1011, 403);
+            this.pictureBox3.Location = new System.Drawing.Point(1010, 403);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(60, 60);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -327,7 +331,7 @@
             // 
             this.pictureBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox2.Image = global::BookHotelTool.Properties.Resources.Restaurant;
-            this.pictureBox2.Location = new System.Drawing.Point(1011, 310);
+            this.pictureBox2.Location = new System.Drawing.Point(1010, 310);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(60, 60);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -340,7 +344,7 @@
             // 
             this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox1.Image = global::BookHotelTool.Properties.Resources.home_no;
-            this.pictureBox1.Location = new System.Drawing.Point(1011, 223);
+            this.pictureBox1.Location = new System.Drawing.Point(1010, 223);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(60, 60);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -353,7 +357,7 @@
             // 
             this.pictureBox7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox7.Image = global::BookHotelTool.Properties.Resources.home3;
-            this.pictureBox7.Location = new System.Drawing.Point(942, 58);
+            this.pictureBox7.Location = new System.Drawing.Point(941, 58);
             this.pictureBox7.Name = "pictureBox7";
             this.pictureBox7.Size = new System.Drawing.Size(60, 60);
             this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -366,7 +370,7 @@
             // 
             this.pbBigRoom.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pbBigRoom.Image = global::BookHotelTool.Properties.Resources.home1;
-            this.pbBigRoom.Location = new System.Drawing.Point(1008, 145);
+            this.pbBigRoom.Location = new System.Drawing.Point(1007, 145);
             this.pbBigRoom.Name = "pbBigRoom";
             this.pbBigRoom.Size = new System.Drawing.Size(60, 60);
             this.pbBigRoom.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -379,7 +383,7 @@
             // 
             this.pbStandardRoom.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pbStandardRoom.Image = global::BookHotelTool.Properties.Resources.home;
-            this.pbStandardRoom.Location = new System.Drawing.Point(1008, 58);
+            this.pbStandardRoom.Location = new System.Drawing.Point(1007, 58);
             this.pbStandardRoom.Name = "pbStandardRoom";
             this.pbStandardRoom.Size = new System.Drawing.Size(60, 60);
             this.pbStandardRoom.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -388,12 +392,28 @@
             this.pbStandardRoom.Tag = "标准房";
             this.pbStandardRoom.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pbBigRoom_MouseDown);
             // 
+            // statusStrip1
+            // 
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tlblInfo});
+            this.statusStrip1.Location = new System.Drawing.Point(0, 579);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(1079, 22);
+            this.statusStrip1.TabIndex = 18;
+            this.statusStrip1.Text = "statusStrip1";
+            // 
+            // tlblInfo
+            // 
+            this.tlblInfo.Name = "tlblInfo";
+            this.tlblInfo.Size = new System.Drawing.Size(0, 17);
+            // 
             // FormMain
             // 
             this.AcceptButton = this.btnSave;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1080, 553);
+            this.ClientSize = new System.Drawing.Size(1079, 601);
+            this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.pictureBox5);
             this.Controls.Add(this.pictureBox6);
@@ -401,7 +421,7 @@
             this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.btnDeleteLastRoom);
+            this.Controls.Add(this.btnDeleteSelectedRoom);
             this.Controls.Add(this.btnSaveToDisk);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label8);
@@ -434,6 +454,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbBigRoom)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbStandardRoom)).EndInit();
+            this.statusStrip1.ResumeLayout(false);
+            this.statusStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -454,7 +476,7 @@
         private System.Windows.Forms.NotifyIcon notifyIcon1;
         private System.Windows.Forms.Label lblShowRooms;
         private System.Windows.Forms.Button btnSaveToDisk;
-        private System.Windows.Forms.Button btnDeleteLastRoom;
+        private System.Windows.Forms.Button btnDeleteSelectedRoom;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox pictureBox3;
@@ -470,6 +492,8 @@
         private System.Windows.Forms.PictureBox pictureBox7;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Button btnSave;
+        private System.Windows.Forms.StatusStrip statusStrip1;
+        private System.Windows.Forms.ToolStripStatusLabel tlblInfo;
     }
 }
 

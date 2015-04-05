@@ -51,6 +51,17 @@ namespace BookHotelTool
             {
                 ShowService.loadFloor();
                 this.lblShowRooms.Invalidate();
+                if (this.selectedRoomInfo != null)
+                {
+                    tlblInfo.Text = string.Format("Position:({0}),Width:{1} Height:{2}",
+                        selectedRoomInfo.PositionX + "," + selectedRoomInfo.PositionY, selectedRoomInfo.Width,
+                        selectedRoomInfo.Height);
+
+                }
+                else
+                {
+                    tlblInfo.Text = "";
+                }
             };
 
             ShowService.Show();
@@ -91,6 +102,7 @@ namespace BookHotelTool
                 if (rectangle.Contains(X, Y))
                 {
                     room.isSelected = true;
+                    this.selectedRoomInfo = room;
                     return room;
                 }
             }
@@ -139,17 +151,6 @@ namespace BookHotelTool
                 PicURl = "http://localhost:8080/Images/home.png",
                 RoomNo = pb.Tag.ToString()//dlg.tbRoomNo.Text.Trim()
             };
-
-            //var dlg = new AddNewRoom();
-            //dlg.tbRoomNo.Text = pb.Tag.ToString();
-            //dlg.tbAngle.Text = lastAngle;
-            //dlg.ShowDialog();
-            //if (dlg.DialogResult != DialogResult.OK)
-            //{
-            //    lblShowRooms.Invalidate();
-            //    return;
-            //}
-
 
             if (pb.Tag.ToString() == "标准房")
             {
@@ -255,6 +256,11 @@ namespace BookHotelTool
                 if (!string.IsNullOrWhiteSpace(room.PicURl))
                 {
                     var img = GetImage(room);
+                    if (Math.Abs(room.Angle) > 0.000001)
+                    {
+                        img = RotateImage(img, (float)room.Angle); //RotateImage(img, (float)room.Angle);
+                    }
+
                     e.Graphics.DrawImage(img, r);
                 }
                 else
@@ -266,7 +272,7 @@ namespace BookHotelTool
                 {
                     e.Graphics.DrawString(room.RoomNo.ToString(), font, Brushes.Green, (int)room.PositionX * pxpercure + 10, (int)room.PositionY * pxpercure + 10);
                     e.Graphics.DrawString(room.Message.ToString(), font, Brushes.Green, (int)room.PositionX * pxpercure + 10, (int)room.PositionY * pxpercure + 30);
-                    e.Graphics.DrawString(room.Angle.ToString(), font, Brushes.Green, (int)room.PositionX * pxpercure + 10, (int)room.PositionY * pxpercure + 50);
+                    //e.Graphics.DrawString(room.Angle.ToString(), font, Brushes.Green, (int)room.PositionX * pxpercure + 10, (int)room.PositionY * pxpercure + 50);
                 }
             }
             foreach (RoomInfo room in this.ShowService.rooms)
@@ -337,13 +343,12 @@ namespace BookHotelTool
             DBManager.SaveToDisc();
         }
 
-        private void btnDeleteLastRoom_Click(object sender, EventArgs e)
+        private void btnDeleteSelectedRoom_Click(object sender, EventArgs e)
         {
             var rooms = DBManager.Data.RoomInfos.Where(r => r.HotelFloorId == floorid).ToList();
             if (rooms.Count > 0)
             {
-                long maxid = rooms.Max(r => r.RoomInfoId);
-                DBManager.Data.RoomInfos.RemoveAll(r => r.RoomInfoId == maxid);
+                DBManager.Data.RoomInfos.RemoveAll(r => r.isSelected && r.HotelFloorId == floorid);
             }
             ShowService.Show();
         }
@@ -495,6 +500,81 @@ namespace BookHotelTool
             return room;
         }
 
+        private void lblShowRooms_DoubleClick(object sender, EventArgs er)
+        {
+            MouseEventArgs e = er as MouseEventArgs;
+            var room = SetSelectedRoom(e.X, e.Y);
+
+            EditRoomInfo dlg = new EditRoomInfo(room);
+
+            dlg.ShowDialog();
+            if (dlg.DialogResult != DialogResult.OK)
+            {
+                //set value to room;
+            }
+
+            this.ShowService.Show();
+        }
+
+        public Image RotateImage(Image img, float rotationAngle)
+        {
+            var bmp = new Bitmap(img);
+
+            using (Graphics gfx = Graphics.FromImage(bmp))
+            {
+                gfx.Clear(Color.Transparent);
+                gfx.DrawImage(img, 0, 0, img.Width, img.Height);
+            }
+            if (rotationAngle > 45 && rotationAngle <= 135)
+            {
+                bmp.RotateFlip(RotateFlipType.Rotate90FlipNone);
+            }
+            else if (rotationAngle > 135 && rotationAngle <= 215)
+            {
+                bmp.RotateFlip(RotateFlipType.Rotate180FlipNone);
+            }
+            else if (rotationAngle > 215 && rotationAngle <= 350)
+            {
+                bmp.RotateFlip(RotateFlipType.Rotate270FlipNone);
+            }
+
+            return bmp;
+        }
+        /// <summary>
+        /// Creates a new Image containing the same image only rotated
+        /// </summary>
+        /// <param name=""image"">The <see cref=""System.Drawing.Image"/"> to rotate
+        /// <param name=""offset"">The position to rotate from.
+        /// <param name=""angle"">The amount to rotate the image, clockwise, in degrees
+        /// <returns>A new <see cref=""System.Drawing.Bitmap"/"> of the same size rotated.</see>
+        /// <exception cref=""System.ArgumentNullException"">Thrown if <see cref=""image"/"> 
+        /// is null.</see>
+        public static Image RotateImage2(Image image, float angle)
+        {
+            if (image == null)
+                throw new ArgumentNullException("image");
+
+            //create a new empty bitmap to hold rotated image
+            Bitmap rotatedBmp = new Bitmap(image.Width, image.Height);
+            rotatedBmp.SetResolution(image.HorizontalResolution, image.VerticalResolution);
+
+            //make a graphics object from the empty bitmap
+            Graphics g = Graphics.FromImage(rotatedBmp);
+
+            //Put the rotation point in the center of the image
+            g.TranslateTransform((float)image.Width / 2, (float)image.Height / 2);
+
+            //rotate the image
+            g.RotateTransform(angle);
+
+            //move the image back
+            g.TranslateTransform(-(float)image.Width / 2, -(float)image.Height / 2);
+
+            //draw passed in image onto graphics object
+            g.DrawImage(image, new PointF(0, 0));
+
+            return rotatedBmp;
+        }
     }
 
     public static class extension

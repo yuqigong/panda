@@ -1,6 +1,6 @@
 ﻿namespace BookHotelTool
 {
-    partial class AddNewRoom
+    partial class EditRoomInfo
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnAdd = new System.Windows.Forms.Button();
+            this.btnOK = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.asdf = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -42,16 +42,17 @@
             this.tbAngle = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
-            // btnAdd
+            // btnOK
             // 
-            this.btnAdd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnAdd.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.btnAdd.Location = new System.Drawing.Point(89, 198);
-            this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(75, 23);
-            this.btnAdd.TabIndex = 5;
-            this.btnAdd.Text = "Add";
-            this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnOK.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnOK.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.btnOK.Location = new System.Drawing.Point(89, 198);
+            this.btnOK.Name = "btnOK";
+            this.btnOK.Size = new System.Drawing.Size(75, 23);
+            this.btnOK.TabIndex = 5;
+            this.btnOK.Text = "OK";
+            this.btnOK.UseVisualStyleBackColor = true;
+            this.btnOK.Click += new System.EventHandler(this.btOK_Click);
             // 
             // btnCancel
             // 
@@ -148,9 +149,9 @@
             this.tbAngle.TabIndex = 4;
             this.tbAngle.Text = "0";
             // 
-            // AddNewRoom
+            // EditRoomInfo
             // 
-            this.AcceptButton = this.btnAdd;
+            this.AcceptButton = this.btnOK;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(272, 233);
@@ -165,10 +166,11 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.asdf);
             this.Controls.Add(this.btnCancel);
-            this.Controls.Add(this.btnAdd);
-            this.Name = "AddNewRoom";
+            this.Controls.Add(this.btnOK);
+            this.Name = "EditRoomInfo";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AddNewRoom";
+            this.Load += new System.EventHandler(this.EditRoomInfo_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -176,7 +178,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Button btnAdd;
+        private System.Windows.Forms.Button btnOK;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Label asdf;
         private System.Windows.Forms.Label label1;
