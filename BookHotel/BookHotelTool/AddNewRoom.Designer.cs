@@ -138,7 +138,7 @@
             this.tbHeight.Name = "tbHeight";
             this.tbHeight.Size = new System.Drawing.Size(149, 21);
             this.tbHeight.TabIndex = 3;
-            this.tbHeight.Text = "5";
+            this.tbHeight.Text = "7";
             // 
             // tbAngle
             // 

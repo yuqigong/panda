@@ -13,6 +13,7 @@ namespace DAL
         public List<RoomType> RoomTypes { get; set; }
         public List<RoomInfo> RoomInfos { get; set; }
 
+
         public DbData()
         {
             HotelFloors = new List<HotelFloor>();

@@ -6,7 +6,7 @@ namespace DAL
 {
     public class DBManager
     {
-        public const string fpath = "C:\\boolhotelinfo.json";
+        public const string fpath = @"C:\360YunPan\Projects\Hackathon\panda\BookHotel\BookHotelTool\boolhotelinfo.json";
         public static DbData Data = new DbData();
 
         static DBManager()

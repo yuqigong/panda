@@ -11,7 +11,10 @@ var rooms2DATA = [
     "PositionY": 3.0,
     "Width": 4.0,
     "Height": 4.0,
-    "Angle": 315.0
+    "Angle": 315.0,
+    "isSelected": false,
+    "isMoving": false,
+    "isResizing": false
   },
   {
     "RoomInfoId": 1,
@@ -25,7 +28,10 @@ var rooms2DATA = [
     "PositionY": 2.0,
     "Width": 4.0,
     "Height": 4.0,
-    "Angle": 337.5
+    "Angle": 337.5,
+    "isSelected": false,
+    "isMoving": false,
+    "isResizing": false
   },
   {
     "RoomInfoId": 2,
@@ -39,7 +45,10 @@ var rooms2DATA = [
     "PositionY": 1.0,
     "Width": 4.0,
     "Height": 4.0,
-    "Angle": 350.0
+    "Angle": 350.0,
+    "isSelected": false,
+    "isMoving": false,
+    "isResizing": false
   },
   {
     "RoomInfoId": 3,
@@ -53,7 +62,10 @@ var rooms2DATA = [
     "PositionY": 1.0,
     "Width": 4.0,
     "Height": 4.0,
-    "Angle": 0.0
+    "Angle": 0.0,
+    "isSelected": false,
+    "isMoving": false,
+    "isResizing": false
   },
   {
     "RoomInfoId": 4,
@@ -67,7 +79,10 @@ var rooms2DATA = [
     "PositionY": 2.0,
     "Width": 4.0,
     "Height": 4.0,
-    "Angle": 22.5
+    "Angle": 22.5,
+    "isSelected": false,
+    "isMoving": false,
+    "isResizing": false
   },
   {
     "RoomInfoId": 5,
@@ -81,7 +96,10 @@ var rooms2DATA = [
     "PositionY": 5.0,
     "Width": 4.0,
     "Height": 4.0,
-    "Angle": 45.0
+    "Angle": 45.0,
+    "isSelected": false,
+    "isMoving": false,
+    "isResizing": false
   },
   {
     "RoomInfoId": 6,
@@ -95,7 +113,10 @@ var rooms2DATA = [
     "PositionY": 9.0,
     "Width": 4.0,
     "Height": 4.0,
-    "Angle": 90.0
+    "Angle": 90.0,
+    "isSelected": false,
+    "isMoving": false,
+    "isResizing": false
   },
   {
     "RoomInfoId": 7,
@@ -109,7 +130,10 @@ var rooms2DATA = [
     "PositionY": 15.0,
     "Width": 4.0,
     "Height": 4.0,
-    "Angle": 112.5
+    "Angle": 112.5,
+    "isSelected": false,
+    "isMoving": false,
+    "isResizing": false
   },
   {
     "RoomInfoId": 8,
@@ -123,7 +147,10 @@ var rooms2DATA = [
     "PositionY": 20.0,
     "Width": 4.0,
     "Height": 4.0,
-    "Angle": 135.0
+    "Angle": 135.0,
+    "isSelected": false,
+    "isMoving": false,
+    "isResizing": false
   },
   {
     "RoomInfoId": 9,
@@ -137,7 +164,10 @@ var rooms2DATA = [
     "PositionY": 22.0,
     "Width": 4.0,
     "Height": 4.0,
-    "Angle": 157.5
+    "Angle": 157.5,
+    "isSelected": false,
+    "isMoving": false,
+    "isResizing": false
   },
   {
     "RoomInfoId": 10,
@@ -151,7 +181,10 @@ var rooms2DATA = [
     "PositionY": 23.0,
     "Width": 4.0,
     "Height": 4.0,
-    "Angle": 180.0
+    "Angle": 180.0,
+    "isSelected": false,
+    "isMoving": false,
+    "isResizing": false
   },
   {
     "RoomInfoId": 11,
@@ -165,7 +198,10 @@ var rooms2DATA = [
     "PositionY": 23.0,
     "Width": 4.0,
     "Height": 4.0,
-    "Angle": 202.5
+    "Angle": 202.5,
+    "isSelected": false,
+    "isMoving": false,
+    "isResizing": false
   },
   {
     "RoomInfoId": 12,
@@ -179,7 +215,10 @@ var rooms2DATA = [
     "PositionY": 22.0,
     "Width": 4.0,
     "Height": 4.0,
-    "Angle": 202.5
+    "Angle": 202.5,
+    "isSelected": false,
+    "isMoving": false,
+    "isResizing": false
   },
   {
     "RoomInfoId": 13,
@@ -193,7 +232,10 @@ var rooms2DATA = [
     "PositionY": 20.0,
     "Width": 4.0,
     "Height": 4.0,
-    "Angle": 225.0
+    "Angle": 225.0,
+    "isSelected": false,
+    "isMoving": false,
+    "isResizing": false
   },
   {
     "RoomInfoId": 14,
@@ -207,7 +249,10 @@ var rooms2DATA = [
     "PositionY": 15.0,
     "Width": 4.0,
     "Height": 4.0,
-    "Angle": 270.0
+    "Angle": 270.0,
+    "isSelected": false,
+    "isMoving": false,
+    "isResizing": false
   },
   {
     "RoomInfoId": 15,
@@ -221,7 +266,10 @@ var rooms2DATA = [
     "PositionY": 9.0,
     "Width": 4.0,
     "Height": 4.0,
-    "Angle": 270.0
+    "Angle": 270.0,
+    "isSelected": false,
+    "isMoving": false,
+    "isResizing": false
   },
   {
     "RoomInfoId": 16,
@@ -235,7 +283,10 @@ var rooms2DATA = [
     "PositionY": 5.0,
     "Width": 9.0,
     "Height": 2.0,
-    "Angle": 0.0
+    "Angle": 0.0,
+    "isSelected": false,
+    "isMoving": false,
+    "isResizing": false
   },
   {
     "RoomInfoId": 17,
@@ -249,7 +300,10 @@ var rooms2DATA = [
     "PositionY": 6.0,
     "Width": 6.0,
     "Height": 2.0,
-    "Angle": 0.0
+    "Angle": 0.0,
+    "isSelected": false,
+    "isMoving": false,
+    "isResizing": false
   },
   {
     "RoomInfoId": 18,
@@ -263,7 +317,10 @@ var rooms2DATA = [
     "PositionY": 8.0,
     "Width": 2.0,
     "Height": 3.0,
-    "Angle": 0.0
+    "Angle": 0.0,
+    "isSelected": false,
+    "isMoving": false,
+    "isResizing": false
   },
   {
     "RoomInfoId": 19,
@@ -277,7 +334,10 @@ var rooms2DATA = [
     "PositionY": 9.0,
     "Width": 5.0,
     "Height": 2.0,
-    "Angle": 0.0
+    "Angle": 0.0,
+    "isSelected": false,
+    "isMoving": false,
+    "isResizing": false
   },
   {
     "RoomInfoId": 20,
@@ -291,7 +351,10 @@ var rooms2DATA = [
     "PositionY": 11.0,
     "Width": 2.0,
     "Height": 4.0,
-    "Angle": 0.0
+    "Angle": 0.0,
+    "isSelected": false,
+    "isMoving": false,
+    "isResizing": false
   },
   {
     "RoomInfoId": 21,
@@ -305,7 +368,10 @@ var rooms2DATA = [
     "PositionY": 13.0,
     "Width": 3.0,
     "Height": 2.0,
-    "Angle": 0.0
+    "Angle": 0.0,
+    "isSelected": false,
+    "isMoving": false,
+    "isResizing": false
   },
   {
     "RoomInfoId": 22,
@@ -319,7 +385,10 @@ var rooms2DATA = [
     "PositionY": 15.0,
     "Width": 2.0,
     "Height": 5.0,
-    "Angle": 0.0
+    "Angle": 0.0,
+    "isSelected": false,
+    "isMoving": false,
+    "isResizing": false
   },
   {
     "RoomInfoId": 23,
@@ -333,7 +402,10 @@ var rooms2DATA = [
     "PositionY": 18.0,
     "Width": 3.0,
     "Height": 2.0,
-    "Angle": 0.0
+    "Angle": 0.0,
+    "isSelected": false,
+    "isMoving": false,
+    "isResizing": false
   },
   {
     "RoomInfoId": 24,
@@ -347,7 +419,10 @@ var rooms2DATA = [
     "PositionY": 20.0,
     "Width": 2.0,
     "Height": 2.0,
-    "Angle": 0.0
+    "Angle": 0.0,
+    "isSelected": false,
+    "isMoving": false,
+    "isResizing": false
   },
   {
     "RoomInfoId": 25,
@@ -361,7 +436,10 @@ var rooms2DATA = [
     "PositionY": 20.0,
     "Width": 4.0,
     "Height": 2.0,
-    "Angle": 0.0
+    "Angle": 0.0,
+    "isSelected": false,
+    "isMoving": false,
+    "isResizing": false
   },
   {
     "RoomInfoId": 26,
@@ -375,7 +453,10 @@ var rooms2DATA = [
     "PositionY": 20.0,
     "Width": 12.0,
     "Height": 2.0,
-    "Angle": 0.0
+    "Angle": 0.0,
+    "isSelected": false,
+    "isMoving": false,
+    "isResizing": false
   },
   {
     "RoomInfoId": 27,
@@ -389,7 +470,10 @@ var rooms2DATA = [
     "PositionY": 18.0,
     "Width": 5.0,
     "Height": 2.0,
-    "Angle": 0.0
+    "Angle": 0.0,
+    "isSelected": false,
+    "isMoving": false,
+    "isResizing": false
   },
   {
     "RoomInfoId": 28,
@@ -403,7 +487,10 @@ var rooms2DATA = [
     "PositionY": 7.0,
     "Width": 2.0,
     "Height": 12.0,
-    "Angle": 0.0
+    "Angle": 0.0,
+    "isSelected": false,
+    "isMoving": false,
+    "isResizing": false
   },
   {
     "RoomInfoId": 29,
@@ -417,7 +504,10 @@ var rooms2DATA = [
     "PositionY": 6.0,
     "Width": 5.0,
     "Height": 2.0,
-    "Angle": 0.0
+    "Angle": 0.0,
+    "isSelected": false,
+    "isMoving": false,
+    "isResizing": false
   },
   {
     "RoomInfoId": 30,
@@ -431,6 +521,9 @@ var rooms2DATA = [
     "PositionY": 13.0,
     "Width": 4.0,
     "Height": 4.0,
-    "Angle": 0.0
+    "Angle": 0.0,
+    "isSelected": false,
+    "isMoving": false,
+    "isResizing": false
   }
 ]

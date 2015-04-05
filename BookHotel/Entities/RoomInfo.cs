@@ -59,5 +59,9 @@ namespace Entities
 
         /// <summary>房间类型图片显示旋转的角度：0,90,180,270 </summary>
         public double Angle { get; set; }
+        public bool isSelected { get; set; }
+        public bool isMoving { get; set; }
+        public bool isResizing { get; set; }
+
     }
 }

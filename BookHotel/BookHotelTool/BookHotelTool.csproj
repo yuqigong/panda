@@ -65,6 +65,8 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service\ShowObject.cs" />
+    <Compile Include="Service\ShowService.cs" />
     <EmbeddedResource Include="AddNewRoom.resx">
       <DependentUpon>AddNewRoom.cs</DependentUpon>
     </EmbeddedResource>
@@ -82,6 +84,9 @@
       <DesignTime>True</DesignTime>
     </Compile>
     <None Include="app.config" />
+    <None Include="boolhotelinfo.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -94,7 +99,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\..\WHPCodeLibrary\WHPLib\WHPLib\WHPLib.csproj">
+    <ProjectReference Include="..\..\..\..\..\WHPCodeLibrary\WHPLib\WHPLib\WHPLib.csproj">
       <Project>{00c1576c-5766-4cd9-9136-37af16608cb7}</Project>
       <Name>WHPLib</Name>
     </ProjectReference>
